@@ -1,11 +1,9 @@
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18127393292">
-</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18127393292"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-18127393292');
 </script>
 <!DOCTYPE html>
@@ -25,52 +23,49 @@
     height: 100vh;
     overflow: hidden;
     position: relative;
+    background: #0a0f0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* iframe do site de fundo */
-  #bg-site {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: none;
-    z-index: 0;
-    filter: blur(3px) brightness(0.6);
-    transform: scale(1.04);
-    transition: filter 0.8s ease, transform 0.8s ease;
-    pointer-events: none;
-  }
-
-  /* Overlay escuro sobre o iframe */
-  #overlay {
+  /* Fundo animado */
+  .bg-gradient {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 1;
-    transition: opacity 0.8s ease;
+    z-index: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(34, 197, 94, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(74, 222, 128, 0.10) 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                #0a0f0d;
+    animation: bgShift 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes bgShift {
+    from { filter: hue-rotate(0deg); }
+    to   { filter: hue-rotate(15deg); }
   }
 
   /* Modal de cookies */
   #cookie-modal {
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(24px) saturate(180%);
     -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 24px;
     padding: 48px 44px 40px;
     max-width: 460px;
     width: 90%;
-    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
     text-align: center;
     animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translate(-50%, -44%); }
-    to   { opacity: 1; transform: translate(-50%, -50%); }
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   .cookie-icon {
@@ -95,10 +90,51 @@
   }
 
   #cookie-modal p {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.65);
     font-size: 14px;
     line-height: 1.65;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+  }
+
+  /* Barra de progresso do redirecionamento automático */
+  .countdown-wrap {
+    margin-bottom: 24px;
+  }
+
+  .countdown-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.40);
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #countdown-num {
+    font-weight: 600;
+    color: #4ade80;
+  }
+
+  .progress-bar-bg {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #4ade80, #22c55e);
+    border-radius: 100px;
+    transform-origin: left;
+    animation: countdown 3s linear forwards;
+  }
+
+  @keyframes countdown {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
   }
 
   #accept-btn {
@@ -114,14 +150,14 @@
     padding: 16px 40px;
     cursor: pointer;
     letter-spacing: 0.2px;
-    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.45);
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.40);
     transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
     text-decoration: none;
   }
 
   #accept-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(34, 197, 94, 0.6);
+    box-shadow: 0 12px 32px rgba(34, 197, 94, 0.60);
     background: linear-gradient(135deg, #6ee7a0 0%, #16a34a 100%);
   }
 
@@ -135,7 +171,7 @@
     gap: 6px;
     margin-top: 22px;
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.30);
   }
 
   .badge::before {
@@ -149,7 +185,7 @@
   }
 
   @keyframes fadeOut {
-    to { opacity: 0; transform: translate(-50%, -46%); }
+    to { opacity: 0; transform: translateY(-10px); }
   }
 
   /* ── RESPONSIVO ── */
@@ -159,45 +195,21 @@
       border-radius: 20px;
       width: 92%;
     }
-
-    .cookie-icon {
-      font-size: 42px;
-      margin-bottom: 16px;
-    }
-
-    #cookie-modal h2 {
-      font-size: 19px;
-    }
-
-    #cookie-modal p {
-      font-size: 13px;
-      margin-bottom: 26px;
-    }
-
-    #accept-btn {
-      font-size: 14px;
-      padding: 14px 28px;
-    }
+    .cookie-icon { font-size: 42px; margin-bottom: 16px; }
+    #cookie-modal h2 { font-size: 19px; }
+    #cookie-modal p { font-size: 13px; margin-bottom: 22px; }
+    #accept-btn { font-size: 14px; padding: 14px 28px; }
   }
 
   @media (max-width: 360px) {
-    #cookie-modal {
-      padding: 28px 18px 26px;
-    }
-
-    #cookie-modal h2 {
-      font-size: 17px;
-    }
+    #cookie-modal { padding: 28px 18px 26px; }
+    #cookie-modal h2 { font-size: 17px; }
   }
 </style>
 </head>
 <body>
 
-<!-- Site de fundo -->
-<iframe id="bg-site" src="https://www.fgrow.com.br/" title="FGrow" loading="lazy"></iframe>
-
-<!-- Overlay -->
-<div id="overlay"></div>
+<div class="bg-gradient"></div>
 
 <!-- Modal de Cookies -->
 <div id="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
@@ -205,7 +217,17 @@
   <h2 id="cookie-title">Sua privacidade importa</h2>
   <p>Utilizamos cookies para garantir a melhor experiência em nosso site. Ao continuar, você concorda com nossa Política de Privacidade.</p>
 
-  <button id="accept-btn" onclick="acceptCookies()">
+  <div class="countdown-wrap">
+    <div class="countdown-label">
+      <span>Redirecionando automaticamente em</span>
+      <span><span id="countdown-num">3</span>s</span>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill"></div>
+    </div>
+  </div>
+
+  <button id="accept-btn" onclick="redirect()">
     Aceitar e Continuar no Site
   </button>
 
@@ -213,28 +235,30 @@
 </div>
 
 <script>
-  function acceptCookies() {
-    const modal   = document.getElementById('cookie-modal');
-    const overlay = document.getElementById('overlay');
-    const bg      = document.getElementById('bg-site');
+  var REDIRECT_URL = 'https://www.fgrow.com.br/';
+  var timer;
 
-    // Anima saída do modal
+  function redirect() {
+    clearTimeout(timer);
+    var modal = document.getElementById('cookie-modal');
     modal.classList.add('accepted');
-
-    // Remove o desfoque e overlay
-    bg.style.filter    = 'blur(0px) brightness(1)';
-    bg.style.transform = 'scale(1)';
-    overlay.style.opacity = '0';
-
-    // Redireciona após a animação
     setTimeout(function () {
-      try {
-        window.top.location.href = 'https://www.fgrow.com.br/';
-      } catch(e) {
-        window.location.href = 'https://www.fgrow.com.br/';
-      }
-    }, 800);
+      try { window.top.location.href = REDIRECT_URL; }
+      catch(e) { window.location.href = REDIRECT_URL; }
+    }, 500);
   }
+
+  // Contagem regressiva no número
+  var count = 3;
+  var interval = setInterval(function () {
+    count--;
+    var el = document.getElementById('countdown-num');
+    if (el) el.textContent = count;
+    if (count <= 0) clearInterval(interval);
+  }, 1000);
+
+  // Redireciona após 3 segundos
+  timer = setTimeout(redirect, 3000);
 </script>
 
 </body>

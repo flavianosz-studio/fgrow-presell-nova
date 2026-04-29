@@ -1,24 +1,24 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18128326201">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18128326201');
-</script>
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FGrow</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18128326201"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18128326201');
+</script>
+
+<!-- Fonte -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 * {
   margin: 0;
@@ -26,45 +26,35 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
   min-height: 100vh;
-  background: #0d0d0d;
+  background-color: #0d0d0d;
+  background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(124, 58, 237, 0.4) 0%, transparent 70%);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Glow roxo de fundo */
-body::before {
-  content: '';
-  position: fixed;
-  top: -20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(124, 58, 237, 0.35) 0%, transparent 70%);
-  pointer-events: none;
 }
 
 .card {
-  position: relative;
-  background: #1a1a1a;
+  background: #1c1c1e;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
-  padding: 56px 52px 48px;
-  max-width: 480px;
+  padding: 48px 40px 40px;
   width: 100%;
+  max-width: 440px;
   text-align: center;
-  animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise 0.5s ease both;
 }
 
 @keyframes rise {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -72,80 +62,73 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .logo-icon {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   background: linear-gradient(135deg, #9333ea, #7c3aed);
-  border-radius: 12px;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.logo-text {
+.logo-name {
   font-size: 20px;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
 }
 
-.logo-text span {
+.logo-name span {
   color: #a855f7;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.8px;
-  margin-bottom: 14px;
-  line-height: 1.2;
+  letter-spacing: -0.6px;
+  margin-bottom: 12px;
+  line-height: 1.25;
 }
 
 p {
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
-  line-height: 1.7;
-  margin-bottom: 40px;
-  max-width: 340px;
-  margin-left: auto;
-  margin-right: auto;
+  line-height: 1.75;
+  margin-bottom: 32px;
 }
 
-.btn-primary {
-  display: inline-flex;
+.btn {
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   width: 100%;
-  padding: 16px;
+  padding: 15px 20px;
   background: linear-gradient(135deg, #9333ea, #7c3aed);
   color: #fff;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
   font-size: 15px;
   font-weight: 700;
   border: none;
-  border-radius: 14px;
+  border-radius: 12px;
   cursor: pointer;
-  letter-spacing: 0.1px;
+  box-shadow: 0 6px 28px rgba(147, 51, 234, 0.45);
   transition: opacity 0.15s, transform 0.15s;
-  box-shadow: 0 8px 32px rgba(147, 51, 234, 0.4);
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
-.btn-primary:hover  { opacity: 0.9; transform: translateY(-1px); }
-.btn-primary:active { transform: translateY(0); }
-
-.btn-primary svg {
-  flex-shrink: 0;
-}
+.btn:hover  { opacity: 0.88; transform: translateY(-1px); }
+.btn:active { opacity: 1; transform: translateY(0); }
 
 .divider {
   border: none;
-  border-top: 1px solid rgba(255,255,255,0.07);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   margin-bottom: 24px;
 }
 
@@ -153,44 +136,49 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .links a {
-  font-size: 13px;
-  color: rgba(255,255,255,0.35);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
   text-decoration: none;
   transition: color 0.15s;
 }
 
 .links a:hover {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 @media (max-width: 480px) {
-  .card { padding: 40px 28px 36px; }
-  h1 { font-size: 26px; }
-  p { font-size: 14px; margin-bottom: 32px; }
+  .card {
+    padding: 36px 24px 32px;
+    border-radius: 20px;
+  }
+  h1 { font-size: 24px; }
+  p  { font-size: 13px; }
+  .btn { font-size: 14px; padding: 14px; }
 }
 </style>
 </head>
 <body>
 
 <div class="card">
+
   <div class="logo">
     <div class="logo-icon">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path d="M13 2L4.5 13.5H11L10 22L20.5 10H14L13 2Z" fill="white" stroke="white" stroke-width="0.5" stroke-linejoin="round"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M13 2L4.5 13.5H11L10 22L20.5 10H14L13 2Z" fill="white" stroke-linejoin="round"/>
       </svg>
     </div>
-    <span class="logo-text">F<span>Grow</span></span>
+    <span class="logo-name">F<span>Grow</span></span>
   </div>
 
   <h1>Bem-vindo(a)!</h1>
   <p>Utilizamos cookies para garantir a melhor experiência em nosso site. Ao continuar, você concorda com nossa Política de Privacidade.</p>
 
-  <button class="btn-primary" onclick="redirect()">
+  <button class="btn" onclick="redirect()">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
       <path d="M5 12l5 5L20 7" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
@@ -204,6 +192,7 @@ p {
     <a href="https://www.fgrow.com.br/">Suporte</a>
     <a href="https://www.fgrow.com.br/">Política de Privacidade</a>
   </div>
+
 </div>
 
 <script>
